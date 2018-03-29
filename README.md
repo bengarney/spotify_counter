@@ -23,3 +23,11 @@ Inspiration
 
 
 -- Brian Hook, "Smart Guy Productivity Pitfalls" http://bookofhook.blogspot.com/2013/03/smart-guy-productivity-pitfalls.html
+
+TODO
+----
+
+* Give feedback when not able to get status from Spotify (ie not authorized, network down)
+* Guide user to log in if they haven't
+* Maybe a GUI
+* Central tracking service
