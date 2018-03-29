@@ -1,0 +1,18 @@
+{
+  "name": "spotify_counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "pretty-ms": "^3.1.0",
+    "querystring": "^0.2.0",
+    "request": "^2.85.0"
+  }
+}
