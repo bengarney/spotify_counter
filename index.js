@@ -16,7 +16,7 @@ const prettyMs = require('pretty-ms');
 
 var client_id = '8127cb3c61574f31bfab353c77e3c97e'; // Your client id
 var client_secret = '332076795bd04ead8e5b0a5816d3cc27'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback/'; // Your redirect uri
+var redirect_uri = 'http://52.12.200.231:8888/callback/'; // Your redirect uri
 
 let access_token = null;
 let refresh_token = null;
