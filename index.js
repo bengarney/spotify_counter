@@ -190,6 +190,12 @@ setInterval(() => {
   // use the access token to access the Spotify Web API
   request.get(options, function (error, response, body) {
 
+     if(!body) {
+       console.log("No status available.");
+       writeState();
+       return;
+     }
+    
     let newProgressMs = body.progress_ms;
     let newAlbum = body.item.album.name;
     let newTrack = body.item.name;
