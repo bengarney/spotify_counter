@@ -190,30 +190,29 @@ setInterval(() => {
   // use the access token to access the Spotify Web API
   request.get(options, function (error, response, body) {
 
-     if(!body || body == undefined) {
-       console.log("No status available.");
-       writeState();
-       return;
-     }
+    try {
+        let newProgressMs = body.progress_ms;
+        let newAlbum = body.item.album.name;
+        let newTrack = body.item.name;
     
-    let newProgressMs = body.progress_ms;
-    let newAlbum = body.item.album.name;
-    let newTrack = body.item.name;
-
-    if (newProgressMs !== lastProgressMs
-      || newAlbum !== lastAlbum
-      || newTrack !== lastTrack) {
-
-      creditedTimeMs += checkIntervalMs;
-
-      lastProgressMs = newProgressMs;
-      lastAlbum = newAlbum;
-      lastTrack = newTrack;
-
-      writeState();
+        if (newProgressMs !== lastProgressMs
+          || newAlbum !== lastAlbum
+          || newTrack !== lastTrack) {
+    
+          creditedTimeMs += checkIntervalMs;
+    
+          lastProgressMs = newProgressMs;
+          lastAlbum = newAlbum;
+          lastTrack = newTrack;
+    
+          writeState();
+        }
+    
+        console.log(padTime(prettyMs(creditedTimeMs, { verbose: true }) + " worked", 40) + " " + padTime("progress=" + body.progress_ms, 20) + " album = " + body.item.album.name + " track = " + body.item.name);    
     }
-
-    console.log(padTime(prettyMs(creditedTimeMs, { verbose: true }) + " worked", 40) + " " + padTime("progress=" + body.progress_ms, 20) + " album = " + body.item.album.name + " track = " + body.item.name);
+    catch(e) {
+        console.log("Data unavailable");
+    }
   });
 
 }, checkIntervalMs);
