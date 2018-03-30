@@ -190,7 +190,7 @@ setInterval(() => {
   // use the access token to access the Spotify Web API
   request.get(options, function (error, response, body) {
 
-     if(!body) {
+     if(!body || body == undefined) {
        console.log("No status available.");
        writeState();
        return;
